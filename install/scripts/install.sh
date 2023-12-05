@@ -115,6 +115,9 @@ if [ ! -z "${INPUT_REPOS}" ]; then
     cd ${SPACK_ROOT}
 fi
 
+echo "INPUT_ADD_TO_PATH: ${INPUT_ADD_TO_PATH}"
 if [[ "${INPUT_ADD_TO_PATH}" == "true" ]]; then
+    echo "in conditional"
     printf ". %s/share/spack/setup-env.sh\n" "${SPACK_ROOT}" >> ~/.bashrc
+    echo "${SPACK_ROOT}/bin" >> "${GITHUB_PATH}"
 fi
