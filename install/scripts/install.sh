@@ -114,3 +114,7 @@ if [ ! -z "${INPUT_REPOS}" ]; then
     done
     cd ${SPACK_ROOT}
 fi
+
+if [[ "${INPUT_ADD_TO_PATH}" == "true" ]]; then
+    printf ". %s/share/spack/setup-env.sh\n" "${SPACK_ROOT}" >> ~/.bashrc
+fi

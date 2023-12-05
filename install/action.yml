@@ -20,6 +20,10 @@ inputs:
     description: Instead of cloning with --depth 1, clone the entire git history (branch only)
     required: false
     default: "false"
+  add_to_path:
+    description: I am a test description
+    required: false
+    default: "true"
 
 runs:
   using: "composite"
@@ -31,5 +35,6 @@ runs:
         INPUT_REPOS: ${{ inputs.repos }}
         INPUT_FULL_CLONE: ${{ inputs.full_clone }}
         INPUT_SPACK_ROOT: ${{ inputs.spack_root }}
+        INPUT_ADD_TO_PATH: ${{ inputs.add_to_path }}
       run: ${{ github.action_path }}/scripts/install.sh
       shell: bash
